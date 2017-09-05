@@ -80,10 +80,16 @@ var numbersArray = [1,2,34,54,55,34,32,11,19,17,54,66,13];
 //Write a function called divider that is given one argument, numbersArray.
 //Have divider return an Array with the first item in the array being the evens array (all the even values from numbersArray) and the second item in the Array being the odds array (all the odd values from numbersArray).
 
+var newArr = [];
+
+var divider = (numbersArray) => {
+      newArr[0] = numbersArray.filter((num) => num%2 === 0)
+
+      newArr[1] = numbersArray.filter((num) => num%2 !== 0)
 
 
-  //Code Here
-
+  return newArr;
+}
 
 //Next Problem
 
@@ -96,8 +102,19 @@ var getRandomArbitrary = function() {
 
 // Your job is to write a function named finder that will get a random number (by invoking getRandomArbitrary), then loop through the array (that will be passed in as a parameter) to see if that random number is in the array. If it is, return true, if it's not, return false
 
-  //Code Here
 
+var finder = (arr) => {
+
+  var arb = getRandomArbitrary();
+
+  for (var i = 0; i < arr.length; i++){
+    if (arr[i] === arb){
+      return true;
+    }
+
+  }
+  return false;
+}
 
 
 
@@ -120,8 +137,16 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
   In both the removeItem function and the addItem function, you will also need to check for valid aurguments. Specrunner will try to call your functions without passing in valid aurguments. When this happens, you will need to respond by returning an empty array.
 */
 
-  //Code Here
+var removeItem = (groceryList,itemToRemove) => {
+  var location = groceryList.indexOf(itemToRemove);
+  groceryList.splice(location,1);
+  return groceryList;
+}
 
+var addItem = (groceryList,itemToAdd) => {
+  groceryList.push(itemToAdd);
+  return groceryList;
+}
 //removeItem(myGroceryList, 'chips') --> ['pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 //addItem(myGroceryList, 'Jerky') --> ['pizza', 'hotpockets', 'MtnDew', 'corndogs', 'Jerky'];
 
@@ -133,8 +158,13 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 
 //Write a function called maker that creates an array, fills that array with numbers from 1 to 215, then returns the array.
 
-  //Code Here
-
+var maker = () => {
+  var arr = [];
+  for (var i = 0; i < 215; i++){
+    arr[i] = i+1;
+  }
+  return arr;
+}
 
 
 //Next Problem
@@ -144,8 +174,16 @@ var numbers = [5, '9', 16, 19, '25', '34', 48];
 //Write a function called addTen that is given 'numbers' as it's only argument and returns a new
 //array after adding ten to each item in numbers. *Verify your answer is correct. --> [15, 19, 26, 29, 35, 44, 58]
 
-  //Code Here
+var addTen = (numbers) => {
 
+  var arrayOfNumbers = numbers.map(Number);
+  console.log(arrayOfNumbers)
+
+  for (var i = 0; i < numbers.length; i++){
+    arrayOfNumbers[i] = arrayOfNumbers[i]+10;
+  }
+  return arrayOfNumbers;
+}
 
 
 //Next Problem
@@ -165,8 +203,9 @@ for(var i = 0; i < num2; i++){
 //Above is some code that adds a random number of values to both arr1 and arr2.
 //Write a function called 'longer' that is given arr1 and arr2 as it's only arguments. Return the array which is longest.
 
-  //Code Here
-
+var longer = (arr1,arr2) => {
+    return arr1.length > arr2.length ? arr1 : arr2;
+}
 
 /*
 As a continuation of the previous problem, write another function called 'both'.
