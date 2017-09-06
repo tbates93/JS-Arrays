@@ -218,7 +218,13 @@ Example: var arr1 = [1,2,3,4]; var arr2 = [2,4,5,6]; newArray // [2,4]
 */
 
 var both = () => {
-
+  var bothArr = [];
+  for (var i = 0; i < arr1.length; i++){
+    for (var j = 0; j < arr2.length; i++){
+      if (arr1[i] === arr2[j]) bothArr.push(arr1)
+    }
+  }
+  return bothArr;
 }
 
 
